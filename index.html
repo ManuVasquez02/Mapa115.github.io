@@ -87,19 +87,19 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>ID_MUN</strong><br />' + (feature.properties['ID_MUN'] !== null ? autolinker.link(feature.properties['ID_MUN'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>ID Municipio</strong><br />' + (feature.properties['ID_MUN'] !== null ? autolinker.link(feature.properties['ID_MUN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>NOM_MUN</strong><br />' + (feature.properties['NOM_MUN'] !== null ? autolinker.link(feature.properties['NOM_MUN'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Municipio</strong><br />' + (feature.properties['NOM_MUN'] !== null ? autolinker.link(feature.properties['NOM_MUN'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Minutas Estrategia 115 02-05-2022_Jurisd.</strong><br />' + (feature.properties['Minutas Estrategia 115 02-05-2022_Jurisd.'] !== null ? autolinker.link(feature.properties['Minutas Estrategia 115 02-05-2022_Jurisd.'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Jurisdicción</strong><br />' + (feature.properties['Minutas Estrategia 115 02-05-2022_Jurisd.'] !== null ? autolinker.link(feature.properties['Minutas Estrategia 115 02-05-2022_Jurisd.'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Minutas Estrategia 115 02-05-2022_Municipio</strong><br />' + (feature.properties['Minutas Estrategia 115 02-05-2022_Municipio'] !== null ? autolinker.link(feature.properties['Minutas Estrategia 115 02-05-2022_Municipio'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Minuta recibida</strong><br />' + (feature.properties['Minutas Estrategia 115 02-05-2022_Minutas Recibidas'] !== null ? autolinker.link(feature.properties['Minutas Estrategia 115 02-05-2022_Minutas Recibidas'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Minutas Estrategia 115 02-05-2022_Minutas Recibidas</strong><br />' + (feature.properties['Minutas Estrategia 115 02-05-2022_Minutas Recibidas'] !== null ? autolinker.link(feature.properties['Minutas Estrategia 115 02-05-2022_Minutas Recibidas'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Minutas Estrategia 115 02-05-2022_Estatus'] !== null ? autolinker.link(feature.properties['Minutas Estrategia 115 02-05-2022_Estatus'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -114,6 +114,21 @@
                   return {
                 pane: 'pane_Div_Mun_0',
                 opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_Div_Mun_0rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_Div_Mun_0',
+                opacity: 1,
                 color: 'rgba(136,10,41,0.0)',
                 dashArray: '',
                 lineCap: 'butt',
@@ -125,7 +140,7 @@
                 interactive: true,
             };
                 }
-                else if (exp_Div_Mun_0rule1_eval_expression(context)) {
+                else if (exp_Div_Mun_0rule2_eval_expression(context)) {
                   return {
                 pane: 'pane_Div_Mun_0',
                 opacity: 1,
@@ -159,7 +174,7 @@
         bounds_group.addLayer(layer_Div_Mun_0);
         map.addLayer(layer_Div_Mun_0);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Div_Mun<br /><table><tr><td style="text-align: center;"><img src="legend/Div_Mun_0_Conminutarequisitada0.png" /></td><td>Con minuta requisitada</td></tr><tr><td style="text-align: center;"><img src="legend/Div_Mun_0_Sinminuta1.png" /></td><td>Sin minuta</td></tr></table>': layer_Div_Mun_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Div_Mun<br /><table><tr><td style="text-align: center;"><img src="legend/Div_Mun_0_CódigoQRentregado0.png" /></td><td>Código QR entregado</td></tr><tr><td style="text-align: center;"><img src="legend/Div_Mun_0_Conminutarequisitada1.png" /></td><td>Con minuta requisitada</td></tr><tr><td style="text-align: center;"><img src="legend/Div_Mun_0_Sinminuta2.png" /></td><td>Sin minuta</td></tr></table>': layer_Div_Mun_0,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_Div_Mun_0,
